@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 
 export default function Header() {
-  const supabase = createClient();
   const router = useRouter();
   const pathname = usePathname();
 
   const handleLogout = async () => {
+    const supabase = createClient();
     await supabase.auth.signOut();
     router.push("/login");
     router.refresh();
