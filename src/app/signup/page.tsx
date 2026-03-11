@@ -35,16 +35,16 @@ export default function SignupPage() {
       <div className="flex min-h-screen items-center justify-center bg-gray-50">
         <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-md text-center">
           <h1 className="mb-4 text-xl font-bold text-gray-800">
-            Check your email
+            メールを確認してください
           </h1>
           <p className="text-sm text-gray-600">
-            Confirmation link has been sent to {email}
+            確認リンクを {email} に送信しました
           </p>
           <Link
             href="/login"
             className="mt-4 inline-block text-sm text-blue-600 hover:underline"
           >
-            Back to login
+            ログインに戻る
           </Link>
         </div>
       </div>
@@ -55,12 +55,12 @@ export default function SignupPage() {
     <div className="flex min-h-screen items-center justify-center bg-gray-50">
       <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-md">
         <h1 className="mb-6 text-center text-2xl font-bold text-gray-800">
-          Create Account
+          アカウント作成
         </h1>
         <form onSubmit={handleSignup} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Email
+              メールアドレス
             </label>
             <input
               type="email"
@@ -72,7 +72,7 @@ export default function SignupPage() {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Password (min 6 characters)
+              パスワード（6文字以上）
             </label>
             <input
               type="password"
@@ -89,13 +89,13 @@ export default function SignupPage() {
             disabled={loading}
             className="w-full rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50"
           >
-            {loading ? "..." : "Sign Up"}
+            {loading ? "..." : "登録"}
           </button>
         </form>
         <p className="mt-4 text-center text-sm text-gray-600">
-          Already have an account?{" "}
+          アカウントをお持ちの方は{" "}
           <Link href="/login" className="text-blue-600 hover:underline">
-            Login
+            ログイン
           </Link>
         </p>
       </div>

@@ -3,9 +3,9 @@
 import type { Book, Location } from "@/lib/types";
 
 const statusLabel: Record<string, string> = {
-  want: "Want to read",
-  reading: "Reading",
-  read: "Read",
+  want: "読みたい",
+  reading: "読書中",
+  read: "読了",
 };
 
 const statusColor: Record<string, string> = {
@@ -34,7 +34,7 @@ export default function BookCard({ book, location, onClick }: Props) {
         />
       ) : (
         <div className="flex h-24 w-16 shrink-0 items-center justify-center rounded bg-gray-100 text-xs text-gray-400">
-          No cover
+          表紙なし
         </div>
       )}
       <div className="min-w-0 flex-1 space-y-1">

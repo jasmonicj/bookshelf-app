@@ -41,7 +41,7 @@ export default function LoginPage() {
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Email
+              メールアドレス
             </label>
             <input
               type="email"
@@ -53,7 +53,7 @@ export default function LoginPage() {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Password
+              パスワード
             </label>
             <input
               type="password"
@@ -69,12 +69,12 @@ export default function LoginPage() {
             disabled={loading}
             className="w-full rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50"
           >
-            {loading ? "..." : "Login"}
+            {loading ? "..." : "ログイン"}
           </button>
         </form>
         <p className="mt-4 text-center text-sm text-gray-600">
           <Link href="/signup" className="text-blue-600 hover:underline">
-            Create account
+            アカウント作成
           </Link>
         </p>
       </div>

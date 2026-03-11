@@ -39,7 +39,7 @@ export default function ProjectsPage() {
   };
 
   const deleteProject = async (id: string) => {
-    if (!confirm("Delete this project and all its reference notes?")) return;
+    if (!confirm("このプロジェクトと全ての参照メモを削除しますか？")) return;
     await supabase.from("projects").delete().eq("id", id);
     load();
   };
@@ -48,24 +48,24 @@ export default function ProjectsPage() {
     <div className="min-h-screen">
       <Header />
       <main className="mx-auto max-w-3xl px-4 py-6">
-        <h1 className="mb-4 text-xl font-bold">Projects</h1>
+        <h1 className="mb-4 text-xl font-bold">プロジェクト</h1>
         <p className="mb-4 text-sm text-gray-500">
-          Create projects (e.g. papers) and collect reference notes from your books.
+          プロジェクト（論文など）を作成し、本から参照メモを集めます。
         </p>
 
         <div className="mb-6 rounded-lg border border-gray-200 bg-white p-4">
-          <h2 className="mb-2 text-sm font-medium text-gray-700">New Project</h2>
+          <h2 className="mb-2 text-sm font-medium text-gray-700">新規プロジェクト</h2>
           <div className="flex flex-col gap-2 sm:flex-row">
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Project name"
+              placeholder="プロジェクト名"
               className="flex-1 rounded-md border border-gray-300 px-3 py-1.5 text-sm focus:border-blue-500 focus:outline-none"
             />
             <input
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Description (optional)"
+              placeholder="説明（任意）"
               className="flex-1 rounded-md border border-gray-300 px-3 py-1.5 text-sm focus:border-blue-500 focus:outline-none"
             />
             <button
@@ -73,7 +73,7 @@ export default function ProjectsPage() {
               disabled={!name.trim()}
               className="rounded-md bg-blue-600 px-4 py-1.5 text-sm text-white hover:bg-blue-700 disabled:opacity-50"
             >
-              Create
+              作成
             </button>
           </div>
         </div>
@@ -90,21 +90,21 @@ export default function ProjectsPage() {
                     <p className="text-xs text-gray-500">{proj.description}</p>
                   )}
                   <p className="mt-1 text-xs text-gray-400">
-                    {noteCounts[proj.id] || 0} reference notes
+                    {noteCounts[proj.id] || 0} 件の参照メモ
                   </p>
                 </Link>
                 <button
                   onClick={() => deleteProject(proj.id)}
                   className="text-sm text-red-500 hover:underline"
                 >
-                  Delete
+                  削除
                 </button>
               </div>
             </div>
           ))}
           {projects.length === 0 && (
             <p className="text-center text-sm text-gray-400 py-8">
-              No projects yet. Create one to start collecting reference notes.
+              まだプロジェクトがありません。作成して参照メモを集めましょう。
             </p>
           )}
         </div>

@@ -62,7 +62,7 @@ export default function BookSearch({ onSelect, onCancel }: Props) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Search by title, author, or ISBN..."
+          placeholder="タイトル、著者、ISBNで検索..."
           className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
         />
         <button
@@ -70,13 +70,13 @@ export default function BookSearch({ onSelect, onCancel }: Props) {
           disabled={loading}
           className="rounded-md bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700 disabled:opacity-50"
         >
-          {loading ? "..." : "Search"}
+          {loading ? "..." : "検索"}
         </button>
         <button
           onClick={onCancel}
           className="rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-600 hover:bg-gray-50"
         >
-          Cancel
+          キャンセル
         </button>
       </div>
       {results.length > 0 && (
@@ -95,7 +95,7 @@ export default function BookSearch({ onSelect, onCancel }: Props) {
                 />
               ) : (
                 <div className="flex h-16 w-11 items-center justify-center rounded bg-gray-200 text-xs text-gray-400">
-                  No img
+                  画像なし
                 </div>
               )}
               <div className="min-w-0 flex-1">
@@ -103,7 +103,7 @@ export default function BookSearch({ onSelect, onCancel }: Props) {
                   {item.volumeInfo.title}
                 </p>
                 <p className="truncate text-xs text-gray-500">
-                  {item.volumeInfo.authors?.join(", ") || "Unknown author"}
+                  {item.volumeInfo.authors?.join(", ") || "著者不明"}
                 </p>
               </div>
             </button>

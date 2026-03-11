@@ -68,7 +68,7 @@ export default function ProjectDetailPage() {
   };
 
   const deleteNote = async (id: string) => {
-    if (!confirm("Delete this note?")) return;
+    if (!confirm("このメモを削除しますか？")) return;
     await supabase.from("reference_notes").delete().eq("id", id);
     load();
   };
@@ -87,7 +87,7 @@ export default function ProjectDetailPage() {
       <div className="min-h-screen">
         <Header />
         <main className="mx-auto max-w-3xl px-4 py-6">
-          <p className="text-gray-500">Loading...</p>
+          <p className="text-gray-500">読み込み中...</p>
         </main>
       </div>
     );
@@ -98,7 +98,7 @@ export default function ProjectDetailPage() {
       <Header />
       <main className="mx-auto max-w-3xl px-4 py-6">
         <Link href="/projects" className="text-sm text-blue-600 hover:underline">
-          &larr; Projects
+          &larr; プロジェクト一覧
         </Link>
         <h1 className="mt-2 mb-1 text-xl font-bold">{project.name}</h1>
         {project.description && (
@@ -108,7 +108,7 @@ export default function ProjectDetailPage() {
         {/* Add note form */}
         <div className="mb-6 rounded-lg border border-gray-200 bg-white p-4">
           <h2 className="mb-2 text-sm font-medium text-gray-700">
-            {editingNote ? "Edit Note" : "Add Reference Note"}
+            {editingNote ? "メモを編集" : "参照メモを追加"}
           </h2>
           {!editingNote && (
             <select
@@ -116,7 +116,7 @@ export default function ProjectDetailPage() {
               onChange={(e) => setSelectedBookId(e.target.value)}
               className="mb-2 w-full rounded-md border border-gray-300 px-3 py-1.5 text-sm focus:border-blue-500 focus:outline-none"
             >
-              <option value="">Select a book...</option>
+              <option value="">本を選択...</option>
               {books.map((b) => (
                 <option key={b.id} value={b.id}>
                   {b.title} - {b.author}
@@ -127,7 +127,7 @@ export default function ProjectDetailPage() {
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            placeholder="Your note / quote / reference..."
+            placeholder="メモ・引用・参照内容..."
             rows={3}
             className="mb-2 w-full rounded-md border border-gray-300 px-3 py-1.5 text-sm focus:border-blue-500 focus:outline-none"
           />
@@ -135,7 +135,7 @@ export default function ProjectDetailPage() {
             <input
               value={pageRef}
               onChange={(e) => setPageRef(e.target.value)}
-              placeholder="Page ref (e.g. p.42, Ch.3)"
+              placeholder="ページ参照（例：p.42, 第3章）"
               className="rounded-md border border-gray-300 px-3 py-1.5 text-sm focus:border-blue-500 focus:outline-none"
             />
             <button
@@ -143,7 +143,7 @@ export default function ProjectDetailPage() {
               disabled={!content.trim() || (!editingNote && !selectedBookId)}
               className="rounded-md bg-blue-600 px-4 py-1.5 text-sm text-white hover:bg-blue-700 disabled:opacity-50"
             >
-              {editingNote ? "Update" : "Add"}
+              {editingNote ? "更新" : "追加"}
             </button>
             {editingNote && (
               <button
@@ -154,7 +154,7 @@ export default function ProjectDetailPage() {
                 }}
                 className="text-sm text-gray-500 hover:underline"
               >
-                Cancel
+                キャンセル
               </button>
             )}
           </div>
@@ -171,7 +171,7 @@ export default function ProjectDetailPage() {
                 )}
                 <div>
                   <p className="text-sm font-medium text-gray-800">
-                    {book?.title || "Unknown book"}
+                    {book?.title || "不明な本"}
                   </p>
                   <p className="text-xs text-gray-500">{book?.author}</p>
                 </div>
@@ -193,13 +193,13 @@ export default function ProjectDetailPage() {
                         onClick={() => startEdit(note)}
                         className="text-xs text-blue-600 hover:underline"
                       >
-                        Edit
+                        編集
                       </button>
                       <button
                         onClick={() => deleteNote(note.id)}
                         className="text-xs text-red-500 hover:underline"
                       >
-                        Delete
+                        削除
                       </button>
                     </div>
                   </div>
@@ -211,7 +211,7 @@ export default function ProjectDetailPage() {
 
         {notes.length === 0 && (
           <p className="text-center text-sm text-gray-400 py-8">
-            No reference notes yet. Select a book and add your first note.
+            まだ参照メモがありません。本を選んで最初のメモを追加しましょう。
           </p>
         )}
       </main>

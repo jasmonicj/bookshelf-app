@@ -16,9 +16,9 @@ export default function Header() {
   };
 
   const navItems = [
-    { href: "/", label: "Books" },
-    { href: "/locations", label: "Locations" },
-    { href: "/projects", label: "Projects" },
+    { href: "/", label: "本棚" },
+    { href: "/locations", label: "場所" },
+    { href: "/projects", label: "プロジェクト" },
   ];
 
   return (
@@ -45,7 +45,7 @@ export default function Header() {
             onClick={handleLogout}
             className="ml-2 rounded-md px-3 py-1.5 text-sm text-gray-500 hover:bg-gray-100"
           >
-            Logout
+            ログアウト
           </button>
         </nav>
       </div>

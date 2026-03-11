@@ -8,10 +8,10 @@ import BookCard from "@/components/BookCard";
 import BookModal from "@/components/BookModal";
 
 const tabs: { key: BookStatus | "all"; label: string }[] = [
-  { key: "all", label: "All" },
-  { key: "want", label: "Want to read" },
-  { key: "reading", label: "Reading" },
-  { key: "read", label: "Read" },
+  { key: "all", label: "すべて" },
+  { key: "want", label: "読みたい" },
+  { key: "reading", label: "読書中" },
+  { key: "read", label: "読了" },
 ];
 
 export default function BooksPage() {
@@ -53,12 +53,12 @@ export default function BooksPage() {
       <Header />
       <main className="mx-auto max-w-5xl px-4 py-6">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-          <h1 className="text-xl font-bold">My Books</h1>
+          <h1 className="text-xl font-bold">マイ本棚</h1>
           <button
             onClick={() => setModalBook(null)}
             className="rounded-md bg-blue-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-blue-700"
           >
-            + Add Book
+            + 本を追加
           </button>
         </div>
 
@@ -81,7 +81,7 @@ export default function BooksPage() {
             onChange={(e) => setLocationFilter(e.target.value)}
             className="rounded-md border border-gray-300 px-2 py-1 text-sm"
           >
-            <option value="all">All locations</option>
+            <option value="all">すべての場所</option>
             {locations.map((l) => (
               <option key={l.id} value={l.id}>
                 {l.name}
@@ -90,14 +90,14 @@ export default function BooksPage() {
           </select>
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="検索..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="rounded-md border border-gray-300 px-3 py-1 text-sm focus:border-blue-500 focus:outline-none"
           />
         </div>
 
-        <p className="mb-3 text-xs text-gray-500">{filtered.length} books</p>
+        <p className="mb-3 text-xs text-gray-500">{filtered.length} 冊</p>
 
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((book) => (
@@ -112,7 +112,7 @@ export default function BooksPage() {
 
         {filtered.length === 0 && (
           <p className="mt-12 text-center text-sm text-gray-400">
-            No books yet. Click &quot;+ Add Book&quot; to get started.
+            まだ本がありません。「+ 本を追加」をクリックして始めましょう。
           </p>
         )}
       </main>
